@@ -201,5 +201,6 @@ class DEV_MetaQADataLoader(DataLoader):
             padded_questions.append(idx_q + [0] * (max_sent_len - len(idx_q)))
             heads_idx.append(head_idx)
             tails_idxs.append(tails_idx)
+         #这边torch.tensor(tails_idxs)有问题
         return torch.tensor(padded_questions, dtype=torch.long), torch.tensor(sorted_qa_pairs_len, dtype=torch.long), \
                torch.tensor(heads_idx), torch.tensor(tails_idxs), max_sent_len
